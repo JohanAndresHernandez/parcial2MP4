@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+
+<% if (reporte) { %>
+    <h1 class="text-center text-danger mb-4">Resolver un problema</h1>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <section class="card border-0 shadow-sm">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h4"><%= reporte.titulo %></h2>
+                    <p><strong>Reportado por:</strong> <%= reporte.nombre %> (<%= reporte.correo %>)</p>
+                    <p><strong>Descripción:</strong> <%= reporte.descripcion %></p>
+                    <form action="/resolver/<%= reporte.id %>" method="POST">
+                        <div class="form-group mb-4">
+                            <label class="form-label fw-semibold" for="solucion">Solución:</label>
+                            <textarea class="form-control" id="solucion" name="solucion" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Guardar solución</button>
+                        <a href="/panel" class="btn btn-outline-secondary">Volver al panel</a>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+<% } else { %>
+    <h1 class="text-center text-danger mb-4">Reportes pendientes</h1>
+    <% if (reportes.length === 0) { %>
+        <p class="text-center">No hay reportes pendientes por resolver.</p>
+    <% } else { %>
+        <div class="list-group">
+            <% reportes.forEach((reporte) => { %>
+                <a href="/resolver/<%= reporte.id %>" class="list-group-item list-group-item-action">
+                    <strong><%= reporte.titulo %></strong>
+                    <span class="d-block text-muted"><%= reporte.descripcion %></span>
+                </a>
+            <% }) %>
+        </div>
+    <% } %>
+<% } %>
+
+<%- include('partials/footer') %>

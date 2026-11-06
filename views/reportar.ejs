@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <section class="card border-0 shadow-sm">
+            <div class="card-body p-4 p-md-5">
+                <h1 class="text-center text-danger mb-4">Reportar un problema</h1>
+                <form action="/reportar" method="POST">
+                    <div class="form-group mb-3">
+                        <label class="form-label fw-semibold" for="titulo">Título del problema:</label>
+                        <input type="text" class="form-control" id="titulo" name="titulo" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label fw-semibold" for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label fw-semibold" for="correo">Correo electrónico:</label>
+                        <input type="email" class="form-control" id="correo" name="correo" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label class="form-label fw-semibold" for="descripcion">Descripción del problema:</label>
+                        <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Reportar</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

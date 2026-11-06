@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+
+<section class="card border-0 shadow-sm">
+    <div class="card-body p-4 p-md-5 text-center">
+        <h1 class="text-success mb-3"><%= message %></h1>
+        <p><strong>Reporte:</strong> <%= titulo %></p>
+        <p><strong>Nombre:</strong> <%= nombre %></p>
+        <p><strong>Correo:</strong> <%= correo %></p>
+        <p><strong>Descripción:</strong> <%= descripcion %></p>
+        <a href="/panel" class="btn btn-danger mt-3">Ir al panel de reportes</a>
+    </div>
+</section>
+
+<%- include('partials/footer') %>
